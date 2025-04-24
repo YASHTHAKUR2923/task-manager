@@ -1,72 +1,127 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
   }
   
   .container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
     max-width: 500px;
-    margin: 50px auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 1rem;
   }
   
   h1 {
-    text-align: center;
+    color: #333;
   }
   
   form {
     display: flex;
-    margin-bottom: 20px;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
   
   #task-input {
     flex: 1;
-    padding: 10px;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
   }
   
   button {
-    padding: 10px 15px;
-    background: #28a745;
-    color: white;
+    padding: 0.75rem 1.25rem;
+    background: #00C9A7;
+    color: #fff;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease;
   }
   
   button:hover {
-    background: #218838;
+    background: #00a48c;
   }
   
   .controls {
-    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+  
+  #filter {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
   }
   
   #task-list {
     list-style: none;
-    padding: 0;
   }
   
   .task {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #eee;
-    padding: 10px;
-    margin-bottom: 5px;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  
+  .task:hover {
+    transform: scale(1.02);
+    background: #f1f1f1;
   }
   
   .task.completed .text {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
+  }
+  
+  .text {
+    flex: 1;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 0.5rem;
   }
   
   .actions button {
-    background: transparent;
+    background: none;
     border: none;
     cursor: pointer;
-    color: red;
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+  }
+  
+  .actions button:hover {
+    color: #00C9A7;
   }
   
   @media (max-width: 600px) {
@@ -75,12 +130,21 @@ body {
     }
   
     button {
-      margin-top: 10px;
+      width: 100%;
+    }
+  
+    .controls {
+      justify-content: center;
     }
   
     .task {
       flex-direction: column;
       align-items: flex-start;
+    }
+  
+    .actions {
+      width: 100%;
+      justify-content: flex-end;
     }
   }
   

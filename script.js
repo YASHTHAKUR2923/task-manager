@@ -29,8 +29,8 @@ function renderTasks() {
       li.innerHTML = `
         <span class="text">${task.text}</span>
         <div class="actions">
-          <button onclick="toggleTask(${index})">✔</button>
-          <button onclick="deleteTask(${index})">✖</button>
+          <button onclick="toggleTask(${index})">✔️</button>
+          <button onclick="deleteTask(${index})">❌</button>
         </div>
       `;
       taskList.appendChild(li);
@@ -41,7 +41,13 @@ function addTask(e) {
   e.preventDefault();
   const text = taskInput.value.trim();
   if (text === '') return;
-  tasks.push({ text, completed: false, createdAt: Date.now() });
+
+  tasks.push({
+    text,
+    completed: false,
+    createdAt: Date.now()
+  });
+
   saveTasks();
   renderTasks();
   taskInput.value = '';
